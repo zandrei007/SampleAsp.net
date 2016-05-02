@@ -1,0 +1,65 @@
+Tools needed:
+Git tool 	: http://desktop.github.com/
+Jenkins		: https://jenkins.io/
+
+Enable IIS
+- open : add / remove programs
+- Turn windows features on / off, check IIS
+
+
+Install Git
+
+Install Jenkins
+1. Set Password and Enable Authorization
+2. Install Git Plugin and MSBuild Plugin
+
+===Setup Git===
+1. Add Credentials for Git
+2. Specify git.exe path in Manage Jenkins -> Configure System
+	Name					: Default
+	Path to Git executable 	: C:\Users\VEST\AppData\Local\GitHub\PortableGit_25d850739bc178b2eb13c3e2a9faafea2f9143c0\cmd\git.exe
+3. Specify git branch in job
+
+
+
+===Setup MSBuild===
+1. add MSBuild path to "Manage Jenkins -> Configure System" in "Environment variables"
+	Name	: MSBuild v4.0.30319
+	Value	: C:\Windows\Microsoft.NET\Framework\v4.0.30319\
+	
+2. add MSBuild path to "MSBuild" section
+	Name			: v4.0.30319
+	Path to MSBuild : C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe
+	
+3. in jenkins job select MSBuild Version
+	MSBuild Version : v4.0.30319
+	
+	
+===---Publish The App---===
+Step 1:
+=== Jenkins Setup ===
+Add Build Step: Execute Windows batch command
+Command 1 (Create ZIP):
+"C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe" "SampleWeb\SampleWeb.csproj" /T:Build;Package /p:Configuration=DEBUG /p:OutputPath="obj\DEBUG" /p:DeployIisAppPath="/Default Web Site/SampleWeb" /p:VisualStudioVersion=11.0
+Command 2 (Publish to IIS):
+"C:\Program Files (x86)\IIS\Microsoft Web Deploy V3\msdeploy.exe" -verb:sync -source:package="SampleWeb\obj\Debug\_PublishedWebsites\SampleWeb_Package\SampleWeb.zip" -dest:auto,computerName=VEST-PC -allowUntrusted=true
+
+
+Step 2:
+=== IIS Setup ===
+https://www.microsoft.com/web/downloads/platform.aspx
+Download & install Microsoft Web Platform Installer
+add	: Recommended Configuration
+	: Web Deployment Tool
+	: Web Deployment Tool 2.1 for Hosting Servers
+On the taskbar, click Start, and then click Control Panel.
+In Control Panel, click Programs and Features, and then click Turn Windows Features on or off.
+Expand Internet Information Services, then Web Management Tool.
+Select IIS Management Service, and then click OK. 
+Configure Web Deploy is missing : https://blogs.technet.microsoft.com/bernhard_frank/2011/09/01/configure-web-deploy-publishing-missing-in-iis-console/
+	
+Source:
+http://www.frictionlesscode.com/have-continuous-integration-with-jenkins-in-30-mins/
+
+Project Name 	: SampleWeb
+Computer Name 	: VEST-PC
