@@ -63,3 +63,7 @@ http://www.frictionlesscode.com/have-continuous-integration-with-jenkins-in-30-m
 
 Project Name 	: SampleWeb
 Computer Name 	: VEST-PC
+
+
+Other tools:
+http://www.hanselman.com/blog/ScottHanselmans2014UltimateDeveloperAndPowerUsersToolListForWindows.aspx
