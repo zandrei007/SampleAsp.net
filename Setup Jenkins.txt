@@ -67,3 +67,8 @@ Computer Name 	: VEST-PC
 
 Other tools:
 http://www.hanselman.com/blog/ScottHanselmans2014UltimateDeveloperAndPowerUsersToolListForWindows.aspx
+
+
+Errors:
+MSB4019: Microsoft.WebApplication.targets was not found.
+https://www.microsoft.com/en-us/download/confirmation.aspx?id=1366
