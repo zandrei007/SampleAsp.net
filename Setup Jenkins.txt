@@ -41,9 +41,13 @@ Step 1:
 Add Build Step: Execute Windows batch command
 Command 1 (Create ZIP):
 "C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe" "SampleWeb\SampleWeb.csproj" /T:Build;Package /p:Configuration=DEBUG /p:OutputPath="obj\DEBUG" /p:DeployIisAppPath="/Default Web Site/SampleWeb" /p:VisualStudioVersion=11.0
+*Note: "/p:DeployIisAppPath="/Default Web Site/SampleWeb"   - Represents path inside iis where package will be deployed when run msdeploy.exe
 Command 2 (Publish to IIS):
 "C:\Program Files (x86)\IIS\Microsoft Web Deploy V3\msdeploy.exe" -verb:sync -source:package="SampleWeb\obj\Debug\_PublishedWebsites\SampleWeb_Package\SampleWeb.zip" -dest:auto,computerName=VEST-PC -allowUntrusted=true
+*Note: computerName=VEST-PC - Computer Name or IP where package will be deployed
 
+For more details for deploying with user permissions:
+http://johan.driessen.se/posts/Deploying-to-remote-IIS-with-MsDeploy
 
 Step 2:
 === IIS Setup ===
