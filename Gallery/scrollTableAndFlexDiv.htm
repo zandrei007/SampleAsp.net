@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<title></title>
+<style>
+.container{
+	background: black;
+	height: 500px;
+	width: 400px;
+	display: flex;
+	flex-flow: column;
+	flex-direction: column;
+    -webkit-flex-flow: column; /* Safari 6.1+ */
+	padding: 5px;
+}
+
+.scrollHeaderAndFooter{
+	background: #b1b1b1; 
+	flex: 0 1 auto;
+	-webkit-flex: 0 1 auto; /* Safari 6.1+ */
+    -ms-flex: 0 1 auto; /* IE 10 */ 
+}
+
+.scrollContent{
+	background: #5d5d5d; 
+	overflow-y: auto;
+	flex: 1 1 auto;
+	-webkit-flex: 1 1 auto; /* Safari 6.1+ */
+    -ms-flex: 1 1 auto; /* IE 10 */ 
+}
+</style>
+<script type="text/javascript">
+var isFooter = true;
+function toggleFooter(){
+
+	$footer = $($(".scrollHeaderAndFooter")[1]);
+	if(isFooter){
+		$footer.hide();
+		isFooter = false;
+	}else {
+		$footer.show();
+		isFooter = true;
+	}
+}
+
+var isHeader = true;
+function toggleHeader(){
+	$header = $($(".scrollHeaderAndFooter")[0]);
+	if(isHeader){
+		$header.hide()
+		isHeader = false;
+	}else {
+		$header.show();
+		isHeader = true;
+	}
+}
+
+var isContent = true;
+function toggleContent(){
+	$content = $($(".scrollContent")[1]);
+	if(isContent){
+		$content.hide()
+		isContent = false;
+	}else {
+		$content.show();
+		isContent = true;
+	}
+}
+</script>
+</head>
+<body>
+<input type="button" onclick="toggleHeader();" value="Toggle Header" /> 
+<input type="button" onclick="toggleContent();" value="Toggle middle content" /> 
+<input type="button" onclick="toggleFooter();" value="Toggle footer" /> 
+<div class="container">
+	<font color="white">
+	<b>div.container</b><br />
+	</font>
+	<div class="scrollHeaderAndFooter">
+		<b>1. div.scrollHeaderAndFooter</b><br />
+	</div>
+	<div class="scrollContent">
+		<table>
+
+        <tbody>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+
+        </tbody>
+		</table>
+	</div>
+	<div class="scrollContent" style="height: 250%;">
+		<font color="white">
+		<b>3. div.scrollContent</b><br />
+		
+		</font>
+	</div>
+	<div class="scrollContent" >
+		<table>
+        <tbody>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+            <tr>
+                <td>Column 1 Content</td>
+                <td>Column 2 Content</td>
+                <td>Column 3 Content</td>
+                <td>Column 4 Content</td>
+            </tr>
+        </tbody>
+		</table>
+	</div>
+	<div id="showHide" class="scrollHeaderAndFooter">
+		5. Auto Height! 
+		<br /> 
+		Auto Height! 
+		<br/> 
+		Auto Height! 
+		<br />
+	</div>
+</div>
+
+<br />
+<br />
+<br />
+CSS:
+
+<pre>
+.container{
+	background: black;
+	height: 500px;
+	width: 400px;
+	display: flex;
+	flex-flow: column;
+	padding: 5px;
+}
+
+.scrollHeaderAndFooter{
+	background: #b1b1b1; 
+	flex: 0 1 auto;
+	-webkit-flex: 0 1 auto; /* Safari 6.1+ */
+	-ms-flex: 0 1 auto; /* IE 10 */ 
+}
+
+.scrollContent{
+	background: #5d5d5d; 
+	overflow-y: auto;
+	flex: 1 1 auto;
+	-webkit-flex: 1 1 auto; /* Safari 6.1+ */
+	-ms-flex: 1 1 auto; /* IE 10 */ 
+}
+</pre>
+
+</html>
