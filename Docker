@@ -1,0 +1,58 @@
+https://hub.docker.com/r/microsoft/aspnet/
+
+Docker file for sql server:
+----------------------------------------
+FROM microsoft/mssql-server-windows-express
+
+EXPOSE 1433 
+
+COPY /temp /attach
+----------------------------------------
+1. Build image (docker file should be present in current directory)
+docker build -t <name> .
+----------------------------------------
+2.1 Get container ip
+docker inspect <container>
+
+2.2 get ip
+docker inspect --format '{{ .NetworkSettings.IPAddress }}'
+----------------------------------------
+3.1 interractive mode (run into container CMD)
+docker run -i -t <container> CMD
+
+3.2 interactive attach
+docker exec -i -t 665b4a1e17b6 CMD
+----------------------------------------
+4. run sql image
+docker run -d -p 1433:1433 -e sa_password=<SA_PASSWORD> -e ACCEPT_EULA=Y microsoft/mssql-server-windows-express
+docker run -d -p 1433:1433 --env sa_password=M3Super!Password  -e ACCEPT_EULA=Y --env attach_dbs="[]" microsoft/mssql-server-windows-express
+docker run -d -p 1433:1433 --env sa_password=M3Super!Password  -e ACCEPT_EULA=Y --env attach_dbs="[{'dbName':'test','dbFiles':['C:\\attach\\test.mdf','C:\\attach\\test_log.ldf']}]" dbimg1	
+----------------------------------------
+5. Save/Load docker image to disk
+docker save -o C:\save\  <image Name>
+docker load -i <path to image tar file>
+----------------------------------------
+6. Run docker with static IP address:
+PS C:\WINDOWS\system32> Get-ContainerNetwork
+
+Name Id                                   Subnets           Mode SourceMac DNSServers DNSSuffix
+---- --                                   -------           ---- --------- ---------- ---------
+nat  8f853471-e1c9-40ba-a492-ccb6071ca293 {172.29.240.0/20} NAT
+
+--info : (docker network 172.29.240.0/20)
+ docker run --net nat --ip 172.29.240.2  <container>
+----------------------------------------
+7. Stop container by name
+docker stop $(docker ps -q --filter ancestor=<image-name> )
+----------------------------------------
+8. Save current state of container to new image
+check "docker commit.png"
+http://tuhrig.de/difference-between-save-and-export-in-docker/
+----------------------------------------
+
+Copy items to NANO server
+https://www.youtube.com/watch?v=dQJ7_3sek6s
+----------------------------------------
+9. remove all exited containers
+docker rm $(docker ps --all -q -f status=exited)
+----------------------------------------
