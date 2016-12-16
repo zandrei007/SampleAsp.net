@@ -56,6 +56,10 @@ Download & install Microsoft Web Platform Installer
 add	: Recommended Configuration
 	: Web Deployment Tool
 	: Web Deployment Tool 2.1 for Hosting Servers
+	
+Windows Server 2003 "Web Deploy Remote Service":
+https://technet.microsoft.com/en-us/library/dd569087(v=ws.10).aspx - install on Deployment server
+
 On the taskbar, click Start, and then click Control Panel.
 In Control Panel, click Programs and Features, and then click Turn Windows Features on or off.
 Expand Internet Information Services, then Web Management Tool.
