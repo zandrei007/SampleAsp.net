@@ -9,7 +9,7 @@ Enable IIS
 
 Install Git
 
-Install Jenkins
+https://www.microsoft.com/en-us/download/confirmation.aspx?id=40764Install Jenkins
 1. Set Password and Enable Authorization
 2. Install Git Plugin and MSBuild Plugin
 
@@ -18,6 +18,7 @@ Install Jenkins
 2. Specify git.exe path in Manage Jenkins -> "Configure System" or "Global Tool Configuration"
 	Name					: Default
 	Path to Git executable 	: C:\Users\VEST\AppData\Local\GitHub\PortableGit_25d850739bc178b2eb13c3e2a9faafea2f9143c0\cmd\git.exe
+
 3. Specify git branch in job
 
 
@@ -26,7 +27,9 @@ Install Jenkins
 1. add MSBuild path to "Manage Jenkins -> Configure System" in "Environment variables"
 	Name	: MSBuild v4.0.30319
 	Value	: C:\Windows\Microsoft.NET\Framework\v4.0.30319\
-	
+
+
+
 2. add MSBuild path to "MSBuild" section
 	Name			: v4.0.30319
 	Path to MSBuild : C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe
@@ -79,4 +82,9 @@ http://www.hanselman.com/blog/ScottHanselmans2014UltimateDeveloperAndPowerUsersT
 
 Errors:
 MSB4019: Microsoft.WebApplication.targets was not found.
-https://www.microsoft.com/en-us/download/confirmation.aspx?id=1366
+- need to install Microsoft Visual Studio 2013 Shell (Isolated) Redistributable Package
+https://www.microsoft.com/en-us/download/confirmation.aspx?id=40764	(2010)
+https://www.microsoft.com/en-us/download/confirmation.aspx?id=1366	(2013)
+
+MSB4057: The target "Package" does not exist in the project.
+C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\Web - is missing (copyed from v10.0)
